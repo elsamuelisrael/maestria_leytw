@@ -54,8 +54,7 @@
         
         <h2>Extras</h2>
 
-        <ul id="losextras">
-        </ul>
+        <ul id="losextras"></ul>
 
       </aside>
 
@@ -70,11 +69,9 @@
         function cambiarArticulo(obj){
 
             let elemX = document.getElementById("titulo");
-
             elemX.innerHTML = obj.titulo;
 
             let elemY = document.getElementById("contenido");
-
             elemY.innerHTML = obj.contenido;
 
             let cadena = ``;
@@ -90,7 +87,6 @@
                 if(i == obj.links){
 
                     let elemZ = document.getElementById("losextras");
-
                     elemZ.innerHTML = cadena;
 
                 }
@@ -101,7 +97,6 @@
         function muestralink(obj){
 
             const mensaje = ` Soy el link extra No. ${obj.linkid} del ${obj.quetitulo}`;
-
             alert(mensaje);
 
         }
