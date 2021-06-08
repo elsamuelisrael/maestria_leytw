@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>ejemplo atributos de datos</title>
+    <link rel="stylesheet" href="stylex.css">
+
+    <!-- the below three lines are a fix to get HTML5 semantic elements working in old versions of Internet Explorer-->
+    <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <header>
+      <h1>Uso de atributos de datos</h1>
+    </header>
+
+    <nav>
+        
+      <ul>
+        
+        <li>
+            <a 
+                data-opcion="0" 
+                data-titulo="Título 0"
+                data-links="3"
+                onclick="muestraDatasOLD(this)" 
+                href="#">Opcion 0
+            </a>
+        </li>
+
+        <li><a data-opcion="1" data-titulo="Título 1" data-links="5" onclick="muestraDatasOLD(this)" href="#">Opción 1</a></li>
+        <li><a data-opcion="2" data-titulo="Título 2" data-links="2" onclick="muestraDatasNEW(this)" href="#">Opción 2</a></li>
+        <li><a data-opcion="3" data-titulo="Título 3" data-links="1" onclick="muestraDatasNEW(this)" href="#">Opción 3</a></li>
+      </ul>
+
+    </nav>
+
+    <main>
+
+      <article id="articulo">
+        
+        <h2 id="titulo"> - </h2>
+
+        <p id="contenido"> - </p>
+
+      </article>
+
+      <aside>
+        
+        <h2>Extras</h2>
+
+        <ul id="losextras">
+        </ul>
+
+      </aside>
+
+    </main>
+
+    <footer>
+      <p>©Copyright 2021 by nobody. All rights reversed.</p>
+    </footer>
+
+    <script>
+
+        function muestraDatasOLD(obj){
+
+          console.log(" *** muestraDatasOLD *** ");
+
+            console.log(
+              {
+                "opcion":obj.getAttribute("data-opcion"),
+                "titulo": obj.getAttribute("data-titulo"),
+                "links": obj.getAttribute("data-links")
+              }
+            );
+
+            obj.setAttribute("data-links", 33);
+            obj.setAttribute("data-titulo", "Nuevo Título");
+
+            console.log(
+              {
+                "opcion":obj.getAttribute("data-opcion"),
+                "titulo": obj.getAttribute("data-titulo"),
+                "links": obj.getAttribute("data-links")
+              }
+            );
+
+        }
+
+        function muestraDatasNEW(obj){
+
+          console.log(" *** muestraDatasNEW *** ");
+
+          console.log(
+            {
+              "opcion":obj.dataset.opcion,
+              "titulo": obj.dataset.titulo,
+              "links": obj.dataset.links
+            }
+          );
+
+          obj.dataset.links = 33;
+          obj.dataset.titulo = "Nuevo Título";
+
+          console.log(
+            {
+              "opcion":obj.dataset.opcion,
+              "titulo": obj.dataset.titulo,
+              "links": obj.dataset.links
+            }
+          );
+
+        }
+
+    </script> 
+
+  </body>
+</html>
