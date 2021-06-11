@@ -84,9 +84,6 @@
 
             var mia = clon.querySelector('.milink');
 
-            //console.log(mia);
-            //console.log(getCount(document.getElementById("menu"), false));
-
             var cuantosvan = getCount(document.getElementById("menu"), false)
 
             mia.id = `elmenu${cuantosvan}`;
@@ -104,7 +101,6 @@
             if(cuantosvan>0){
 
                 var elE = `elmenu${cuantosvan-1}`;
-                //console.log(elE);
                 var myobj = document.getElementById(elE).parentElement;
                 myobj.remove();
 
