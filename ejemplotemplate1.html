@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>ejemplo template</title>
+    <link rel="stylesheet" href="stylex.css">
+
+    <!-- the below three lines are a fix to get HTML5 semantic elements working in old versions of Internet Explorer-->
+    <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <header>
+      <h1>Uso de templates</h1>
+    </header>
+
+    <nav>
+        
+      <ul id="menu">
+      </ul>
+
+    </nav>
+
+    <main>
+
+      <article id="articulo">
+        
+        <button onclick="ponOpciones()">Agregar Opción</button>
+        <button onclick="quitarOpcion()">Quitar Opción</button>
+
+      </article>
+
+      <aside>
+        
+        <h2>Extras</h2>
+
+        <ul id="losextras">
+        </ul>
+
+      </aside>
+
+    </main>
+
+    <footer>
+      <p>©Copyright 2021 by nobody. All rights reversed.</p>
+    </footer>
+
+    <template id="templateOpcion">
+        <li><a id="elmenuX" data-elid="X" onclick="hacerAlgo(this.dataset)" class="milink" href="#">Opción X</a></li>
+    </template>
+
+    <script>
+
+        function hacerAlgo(obj){
+
+            alert( ' Soy la Opción ' + obj.elid);
+
+        }
+
+        function getCount(parent, getChildrensChildren){
+
+            var relevantChildren = 0;
+            var children = parent.childNodes.length;
+            for(var i=0; i < children; i++){
+                if(parent.childNodes[i].nodeType != 3){
+                    if(getChildrensChildren)
+                        relevantChildren += getCount(parent.childNodes[i],true);
+                    relevantChildren++;
+                }
+            }
+
+            return relevantChildren;
+
+        }
+
+        function ponOpciones() {
+
+            var temp = document.getElementById("templateOpcion");
+            var clon = temp.content.cloneNode(true);
+
+            var mia = clon.querySelector('.milink');
+
+            //console.log(mia);
+            //console.log(getCount(document.getElementById("menu"), false));
+
+            var cuantosvan = getCount(document.getElementById("menu"), false)
+
+            mia.id = `elmenu${cuantosvan}`;
+            mia.text = `Opción ${cuantosvan}`;
+            mia.dataset.elid = cuantosvan;
+
+            var elmenu = document.getElementById("menu");
+            elmenu.appendChild(clon);
+        }
+
+        function quitarOpcion() {''
+
+            var cuantosvan = getCount(document.getElementById("menu"), false);
+
+            if(cuantosvan>0){
+
+                var elE = `elmenu${cuantosvan-1}`;
+                //console.log(elE);
+                var myobj = document.getElementById(elE).parentElement;
+                myobj.remove();
+
+            }
+            else{
+                alert(' No hay opciones que quitar ');
+            }
+
+        }
+
+    </script> 
+
+  </body>
+</html>
