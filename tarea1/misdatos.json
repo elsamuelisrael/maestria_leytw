@@ -1,0 +1,48 @@
+{
+    "datos":{
+        "navegadores": [
+            {
+                "nombre": "WorldWideWeb (Nexus)",
+                "fecha": 1990,
+                "activo": "true",
+                "img": "cern.png"
+            },
+            {
+                "nombre": "Lynx",
+                "fecha": 1990,
+                "activo": "true",
+                "img": "lynx.png"
+            },
+            {
+                "nombre": "Mosaic Netscape",
+                "fecha": 1994,
+                "activo": "false",
+                "img": "netscape.png"
+            },
+            {
+                "nombre": "Opera",
+                "fecha": 1995,
+                "activo": "true",
+                "img": "opera.png"
+            },
+            {
+                "nombre": "IE",
+                "fecha": 1995,
+                "activo": "false",
+                "img": "ie.png"
+            },
+            {
+                "nombre": "Mac IE",
+                "fecha": 1995,
+                "activo": "false",
+                "img": "ie.png"
+            },
+            {
+                "nombre": "Mozilla",
+                "fecha": 1999,
+                "activo": "true",
+                "img": "mozilla.png"
+            }
+        ]
+    }
+}
